@@ -1,0 +1,17 @@
+<!-- Saturn planet -->
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="saturnGradient" cx="30%" cy="30%">
+      <stop offset="0%" style="stop-color:#f1c40f;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#f39c12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d68910;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  <ellipse cx="200" cy="150" rx="120" ry="15" fill="none" stroke="#bdc3c7" stroke-width="3" opacity="0.6"/>
+  <ellipse cx="200" cy="150" rx="140" ry="20" fill="none" stroke="#95a5a6" stroke-width="2" opacity="0.4"/>
+  <circle cx="200" cy="150" r="70" fill="url(#saturnGradient)"/>
+  <ellipse cx="200" cy="135" rx="65" ry="6" fill="#e67e22" opacity="0.5"/>
+  <ellipse cx="200" cy="165" rx="60" ry="4" fill="#f39c12" opacity="0.6"/>
+  <text x="200" y="250" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18">Saturn - The Ringed Wonder</text>
+</svg>

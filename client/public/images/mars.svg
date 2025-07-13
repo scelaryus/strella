@@ -1,0 +1,15 @@
+<!-- Mars planet -->
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="marsGradient" cx="30%" cy="30%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#ee5a24;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a55233;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <rect width="400" height="300" fill="#0a0a0a"/>
+  <circle cx="200" cy="150" r="80" fill="url(#marsGradient)"/>
+  <ellipse cx="180" cy="140" rx="15" ry="8" fill="#c0392b" opacity="0.6"/>
+  <ellipse cx="220" cy="160" rx="20" ry="10" fill="#c0392b" opacity="0.4"/>
+  <text x="200" y="250" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="18">Mars - The Red Planet</text>
+</svg>
