@@ -9,7 +9,8 @@ import type {
   ContactFormData
 } from '../types';
 
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 
+  (import.meta.env.MODE === 'development' ? 'http://localhost:5000/api' : '/api');
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -47,10 +48,10 @@ export const destinationsAPI = {
     api.get('/destinations'),
   
   getById: (id: number): Promise<ApiResponse<Destination>> => 
-    api.get(`/destinations/${id}`),
+    api.get(`/destinations?id=${id}`),
   
   getByDifficulty: (difficulty: string): Promise<ApiResponse<Destination[]>> => 
-    api.get(`/destinations/difficulty/${difficulty}`),
+    api.get(`/destinations?difficulty=${difficulty}`),
 };
 
 // Reservations API
@@ -59,16 +60,16 @@ export const reservationsAPI = {
     api.get('/reservations'),
   
   getById: (id: number): Promise<ApiResponse<Reservation>> => 
-    api.get(`/reservations/${id}`),
+    api.get(`/reservations?id=${id}`),
   
   create: (data: ReservationFormData): Promise<ApiResponse<Reservation>> => 
     api.post('/reservations', data),
   
   updateStatus: (id: number, status: string): Promise<ApiResponse<Reservation>> => 
-    api.put(`/reservations/${id}`, { status }),
+    api.put(`/reservations?id=${id}`, { status }),
   
   delete: (id: number): Promise<ApiResponse<void>> => 
-    api.delete(`/reservations/${id}`),
+    api.delete(`/reservations?id=${id}`),
 };
 
 // Reviews API
@@ -77,13 +78,13 @@ export const reviewsAPI = {
     api.get('/reviews', { params }),
   
   getById: (id: number): Promise<ApiResponse<Review>> => 
-    api.get(`/reviews/${id}`),
+    api.get(`/reviews?id=${id}`),
   
   create: (data: Omit<Review, 'id' | 'date' | 'verified'>): Promise<ApiResponse<Review>> => 
     api.post('/reviews', data),
   
   getStats: (): Promise<ApiResponse<ReviewStats>> => 
-    api.get('/reviews/stats/summary'),
+    api.get('/reviews?stats=summary'),
 };
 
 // Health check
@@ -96,6 +97,7 @@ export const healthAPI = {
 export const contactAPI = {
   send: (data: ContactFormData): Promise<{ success: boolean; message: string }> => {
     // Mock implementation - in real app, this would send to backend
+    console.log('Contact form data:', data);
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve({

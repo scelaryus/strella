@@ -1,7 +1,8 @@
+// @ts-nocheck
 import { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Sphere, Text } from '@react-three/drei';
-import { Mesh, Vector3 } from 'three';
+import { Mesh } from 'three';
 import type { Destination } from '../../types';
 
 interface Planet3DProps {

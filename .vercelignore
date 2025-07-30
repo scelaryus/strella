@@ -1,0 +1,14 @@
+server/
+node_modules/
+.env.local
+.env
+*.log
+.DS_Store
+Thumbs.db
+client/node_modules/
+client/.env.local
+client/.env
+performance-test.js
+test-setup.js
+start.bat
+quick-start.ps1
