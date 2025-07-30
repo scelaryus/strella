@@ -9,14 +9,14 @@
       "runtime": "nodejs18.x"
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "source": "/api/:match*",
+      "destination": "/api/:match*"
     },
     {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/:match*",
+      "destination": "/:match*"
     }
   ],
   "headers": [
